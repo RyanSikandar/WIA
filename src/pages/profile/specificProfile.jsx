@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
 
 function SpecificProfile() {
+  useRedirect();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { id } = useParams();
   const [userProfile, setUserProfile] = useState(null); // To hold user data

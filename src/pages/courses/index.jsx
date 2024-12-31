@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import CourseCard from '../../components/CourseCard';
 import Header from '../../components/Header';
+import { useRedirect } from '../../customHook/useRedirect';
 
 const Courses = () => {
+  useRedirect();
   const [courseData, setCourseData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
