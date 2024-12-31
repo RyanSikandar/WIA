@@ -3,8 +3,10 @@ import AdvertisementCard from '../../components/AdCard';
 import Header from '../../components/Header';
 import { getAllAds } from '../../Repository/mentorRepo';
 import { useQuery } from '@tanstack/react-query';
+import { useRedirect } from '../../customHook/useRedirect';
 
 function Mentors() {
+  useRedirect();
 
     const {data: sampleAdvertisements, isLoading, isSuccess
     } = useQuery({

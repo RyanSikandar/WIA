@@ -3,8 +3,10 @@ import Header from '../../components/Header';
 import { getUserProfile } from '../../Repository/authRepo';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import { useRedirect } from '../../customHook/useRedirect';
 
 function Profile() {
+  useRedirect();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [image, setImage] = useState(null);
   const [userProfile, setUserProfile] = useState({

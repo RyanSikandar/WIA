@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header';
+import { useRedirect } from '../../customHook/useRedirect';
 
 function SpecificProfile() {
+  useRedirect();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Sample data to simulate form submission

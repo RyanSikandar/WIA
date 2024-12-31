@@ -4,8 +4,10 @@ import Header from "../../components/Header";
 import { QueryClient, useQuery } from "@tanstack/react-query";
 import { deleteAd, editMentorAd, getMentorAds } from "../../Repository/mentorRepo";
 import axios from "axios";
+import { useRedirect } from "../../customHook/useRedirect";
 
 function MyAd() {
+  useRedirect();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentAd, setCurrentAd] = useState(null);
   const [formData, setFormData] = useState({
