@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {jwtDecode} from "jwt-decode"; 
 
 function AdvertisementCard({ advertisement }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,6 +12,9 @@ function AdvertisementCard({ advertisement }) {
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  const id = JSON.parse(localStorage.getItem("user")).id;
+
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center space-y-2">
@@ -52,7 +56,7 @@ function AdvertisementCard({ advertisement }) {
                 className="w-full h-48 rounded-lg object-cover mb-4"
               />
               <p>
-                <strong>Mentor Name:</strong> <p className='cursor-pointer font-bold text-blue-400 hover:text-lg transition-all duration-100 ease-in-out' onClick={()=>navigate('/profile/asa')} >{advertisement.mentorName}</p>
+                <strong>Mentor Name:</strong> <p className='cursor-pointer font-bold text-blue-400 hover:text-lg transition-all duration-100 ease-in-out' onClick={()=>navigate(`/profile/${id}`)} >{advertisement.mentorName}</p>
               </p>
               <p>
                 <strong>Services:</strong> {advertisement.services}
