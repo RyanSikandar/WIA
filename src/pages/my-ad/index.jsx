@@ -7,6 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function MyAd() {
+  useRedirect();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentAd, setCurrentAd] = useState(null);
   const [formData, setFormData] = useState({

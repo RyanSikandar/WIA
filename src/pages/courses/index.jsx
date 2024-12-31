@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
 
 const Courses = () => {
+  useRedirect();
   const [courseData, setCourseData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');

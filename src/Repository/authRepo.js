@@ -1,8 +1,6 @@
 import axios from "axios";
 
-// const API_URL = "https://web-be-180924265462.us-central1.run.app/api/auth";
 const API_URL = "http://localhost:5001/api/auth";
-
 export const registerUser = async (userData) => {
 
    const response = await axios.post(`${API_URL}/register`, userData);

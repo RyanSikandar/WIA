@@ -5,6 +5,7 @@ import { getAllProducts } from '../../Repository/productRepo';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 const Jobs = () => {
+  useRedirect();
   const {
     data: products,
     error,

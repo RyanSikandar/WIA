@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function SpecificProfile() {
+  useRedirect();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { id } = useParams();
   const [userProfile, setUserProfile] = useState(null); // To hold user data
