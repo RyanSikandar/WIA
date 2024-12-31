@@ -3,7 +3,9 @@ import Header from '../../components/Header';
 import JobCard from '../../components/JobCard';
 import { getAllProducts } from '../../Repository/productRepo';
 import { useQuery } from '@tanstack/react-query';
+import { use } from 'react';
 const Jobs = () => {
+  useRedirect();
   const {
     data: products,
     error,

@@ -3,9 +3,10 @@ import Header from "../../components/Header";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { createMentorAd } from "../../Repository/mentorRepo";
 import axios from 'axios'; 
-import { useNavigate } from "react-router-dom";
+import { useRedirect } from "../../customHook/useRedirect";
 
 function AddAdvertisement() {
+  useRedirect();
   const [advertisement, setAdvertisement] = useState({
     mentorName: "",
     services: "",

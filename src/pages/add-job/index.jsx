@@ -4,8 +4,10 @@ import { useMutation } from '@tanstack/react-query';
 import { createProduct } from '../../Repository/productRepo';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useRedirect } from '../../customHook/useRedirect';
 
 function AddJob() {
+  useRedirect();
   const navigation = useNavigate();
   const [productData, setProductData] = useState({
     jobName: '',  // Prefilled field

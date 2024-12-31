@@ -3,8 +3,10 @@ import Header from '../../components/Header';
 import JobCard from '../../components/JobCard';
 import axios from 'axios';
 import { deleteProduct, editProduct } from '../../Repository/productRepo';
+import { useRedirect } from '../../customHook/useRedirect';
 
 function OrgJobs() {
+  useRedirect();
   const [productPosts, setProductPosts] = useState([]);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);

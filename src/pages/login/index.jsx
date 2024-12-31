@@ -10,6 +10,9 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  if (predefinedRole) {
+    navigate('/profile');
+  }
 
   const mutation = useMutation({
     mutationFn: loginUser,
