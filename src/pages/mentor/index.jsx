@@ -3,8 +3,18 @@ import AdvertisementCard from '../../components/AdCard';
 import Header from '../../components/Header';
 import { getAllAds } from '../../Repository/mentorRepo';
 import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 function Mentors() {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        navigate(`/`);
+    }
+  }, [navigate]);
 
     const {data: sampleAdvertisements, isLoading, isSuccess
     } = useQuery({

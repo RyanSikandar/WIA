@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { createMentorAd } from "../../Repository/mentorRepo";
@@ -20,6 +20,13 @@ function AddAdvertisement() {
   });
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        navigate(`/`);
+    }
+  }, [navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

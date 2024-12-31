@@ -3,6 +3,7 @@ import Header from '../../components/Header';
 import { getUserProfile } from '../../Repository/authRepo';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +13,8 @@ function Profile() {
     email: '',
     role: '',
   });
+
+  const navigate = useNavigate();
 
   // Using `useQuery` hook to fetch user profile data
   const { data, error, isLoading, isError, refetch } = useQuery({
@@ -29,6 +32,13 @@ function Profile() {
       });
     }
   }, [data]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        navigate(`/`);
+    }
+  }, [navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

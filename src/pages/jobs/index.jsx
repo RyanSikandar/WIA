@@ -3,6 +3,7 @@ import Header from '../../components/Header';
 import JobCard from '../../components/JobCard';
 import { getAllProducts } from '../../Repository/productRepo';
 import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 const Jobs = () => {
   const {
     data: products,
@@ -14,6 +15,15 @@ const Jobs = () => {
     queryKey: ["allProducts"],
     queryFn: getAllProducts,
   });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        navigate(`/`);
+    }
+  }, [navigate]);
 
   const [cart, setCart] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -69,6 +79,8 @@ const Jobs = () => {
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(savedCart);
   }, []);
+
+
 
   // Calculate total price
   const calculateTotalPrice = () => {

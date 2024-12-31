@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../Repository/authRepo';
 import { useMutation } from '@tanstack/react-query';
@@ -48,6 +48,15 @@ function Login() {
     // Trigger the mutation
     mutation.mutate(userData);
   };
+
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        navigate(`/profile`);
+    }
+  }, [navigate]);
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">

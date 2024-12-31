@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function SpecificProfile() {
@@ -8,6 +8,14 @@ function SpecificProfile() {
   const { id } = useParams();
   const [userProfile, setUserProfile] = useState(null); // To hold user data
   const [predefinedRole, setPredefinedRole] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        navigate(`/`);
+    }
+  }, [navigate]);
 
   // Fetch user profile
   useEffect(() => {
