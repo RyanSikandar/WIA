@@ -4,6 +4,7 @@ import { QueryClient, useMutation } from "@tanstack/react-query";
 import { createMentorAd } from "../../Repository/mentorRepo";
 import axios from 'axios'; 
 import { useRedirect } from "../../customHook/useRedirect";
+import { useNavigate } from "react-router-dom";
 
 function AddAdvertisement() {
   useRedirect();

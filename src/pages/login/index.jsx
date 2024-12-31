@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../Repository/authRepo';
 import { useMutation } from '@tanstack/react-query';
@@ -10,10 +10,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  if (predefinedRole) {
-    navigate('/profile');
-  }
-
+  
   const mutation = useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
