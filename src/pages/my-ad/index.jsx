@@ -5,6 +5,7 @@ import { QueryClient, useQuery } from "@tanstack/react-query";
 import { deleteAd, editMentorAd, getMentorAds } from "../../Repository/mentorRepo";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useRedirect } from "../../customHook/useRedirect";
 
 function MyAd() {
   useRedirect();
@@ -28,13 +29,7 @@ function MyAd() {
     queryFn: getMentorAds,
   });
 const navigate = useNavigate();
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        navigate(`/`);
-    }
-  }, [navigate]);
-
+  
   const handleEdit = (advertisement) => {
     setCurrentAd(advertisement);
     setFormData({

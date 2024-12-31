@@ -4,6 +4,7 @@ import { getUserProfile } from '../../Repository/authRepo';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { useRedirect } from '../../customHook/useRedirect';
 
 function Profile() {
   useRedirect();
@@ -33,13 +34,6 @@ function Profile() {
       });
     }
   }, [data]);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        navigate(`/`);
-    }
-  }, [navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

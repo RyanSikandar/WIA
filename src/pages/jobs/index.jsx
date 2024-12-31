@@ -4,6 +4,7 @@ import JobCard from '../../components/JobCard';
 import { getAllProducts } from '../../Repository/productRepo';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { useRedirect } from '../../customHook/useRedirect';
 const Jobs = () => {
   useRedirect();
   const {
@@ -18,13 +19,6 @@ const Jobs = () => {
   });
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        navigate(`/`);
-    }
-  }, [navigate]);
 
   const [cart, setCart] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);

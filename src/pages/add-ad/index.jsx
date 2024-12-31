@@ -23,12 +23,6 @@ function AddAdvertisement() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        navigate(`/`);
-    }
-  }, [navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

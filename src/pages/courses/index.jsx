@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import CourseCard from '../../components/CourseCard';
 import Header from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
+import { useRedirect } from '../../customHook/useRedirect';
 
 const Courses = () => {
   useRedirect();
@@ -15,13 +16,6 @@ const Courses = () => {
   const debounceTimeout = useRef(null);
   const paginationRef = useRef(null); // Ref for pagination container
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        navigate(`/`);
-    }
-  }, [navigate]);
 
   useEffect(() => {
     // Fetch the data from the JSON file
